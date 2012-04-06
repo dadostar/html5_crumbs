@@ -21,6 +21,19 @@
   var gmm = 192;
   var bmm = 192;
 
+
+  var rc = $('#rc');
+  var gc = $('#gc');
+  var bc = $('#bc');
+
+  var rcm = $('#rcm');
+  var gcm = $('#gcm');
+  var bcm = $('#bcm');
+
+  var rcmm = 192;
+  var gcmm = 192;
+  var bcmm = 192;
+
 var arr = new Array();
 
   var raggio = $('#raggio');
@@ -34,16 +47,21 @@ var arr = new Array();
   var width = canvas.width();
   var height = canvas.height();
 
-  var drawCircle = function (x, y, radius) {
+  var drawCircle = function (x, y, radius,rgb) {
     ctx.beginPath();
-    var info = {X:x,Y:y,R:radius};
+    
+    var info = {X:x,Y:y,R:radius,C:rgb};
     arr.push(info);
     ctx.arc(x, y, radius, 0, 2*Math.PI, true);
+    ctx.fillStyle = 'rgb('+rgb+')';
+    ctx.lineWidth = 8;
     ctx.stroke();
+    ctx.fill();
   };
 
   canvas.on('mousedown',function(e){
-  	drawCircle(e.offsetX,e.offsetY,rr);
+    var str = ''+rcmm+','+gcmm+','+bcmm+'';
+  	drawCircle(e.offsetX,e.offsetY,rr,str);
   });
 
 
@@ -56,7 +74,10 @@ var arr = new Array();
     {
     ctx.beginPath();
     ctx.arc(arr[i].X, arr[i].Y, arr[i].R, 0, 2*Math.PI, true);
+    ctx.lineWidth = 8;
+    ctx.fillStyle = 'rgb('+arr[i].C+')';
     ctx.stroke();
+    ctx.fill();
     }
   }
 
@@ -129,6 +150,27 @@ b.on('change',function(e){
 
   bm.text(blue);
   changeColor();
+});
+rc.on('change',function(e){
+  var red = rc.attr('value');
+  rcmm = red;
+
+  rcm.text(red);
+  
+});
+
+gc.on('change',function(e){
+  var green = gc.attr('value');
+  gcmm = green;
+
+  gcm.text(green);
+});
+bc.on('change',function(e){
+  var blue = bc.attr('value');
+  bmm = blue;
+
+  bcm.text(blue);
+  
 });
 
 
