@@ -6,6 +6,43 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header>
+    <h1>HTML5 crumbs</h1>
+  </header>
+  <section>
+    <div class="container">
+      <button type="button" id="mybuttonGreets">greets</button>
+      <button type="button" id="buttonGray">color grey</button>
+      <button type="button" id="buttonWhite">color white</button>
+    </div>
+    <div class="container">
+      <canvas id="paper" width="400" height="300">
+        Your browser doesn't support HTML5 Canvas.
+      </canvas>
+    </div>
+    <div class="container">
+        <h3>Circle radius</h3>
+        <input id="raggio" type="range" min="5" max="60" value="15" step="1" />
+        <span id="raggioM">15</span>
+    </div>
+    <div class="container">
+        <h3>Background color (rgb)</h3>
+        <input id="r" type="range" min="0" max="255" value="192" step="1" />
+        <span id="rm">192</span>
+        <input id="g" type="range" min="0" max="255" value="192" step="1" />
+        <span id="gm">192</span>
+        <input id="b" type="range" min="0" max="255" value="192" step="1" />
+        <span id="bm">192</span>
+    </div>
+
+    <div class="container">
+      <button id="buttonclear">clear canvas</button>
+    </div>
+  </section>
+  <footer>
+    <p>HTML5 crumbs are baked by <a href="http://www.dia.uniroma3.it/~cvdlab/">CVD LAB</a></p>
+  </footer>
+
   <script src="js/jquery.js"></script>
   <script src="js/script.js"></script>
 </body>
